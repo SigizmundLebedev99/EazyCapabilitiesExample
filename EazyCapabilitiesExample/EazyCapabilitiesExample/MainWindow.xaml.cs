@@ -40,5 +40,30 @@ namespace EazyCapabilitiesExample
                 }
                       
         }
+
+        private void Exit_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void mainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            MessageBoxResult mbr = MessageBox.Show("Сохранить данные перед выходом из приложения?", "Message", MessageBoxButton.YesNoCancel, MessageBoxImage.Question);
+            if (mbr == MessageBoxResult.Yes)
+            {
+                try
+                {
+                    XmlWorker.SaveEmployesInfo((this.DataContext as MainViewModel).EmployeeCollection);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+            else if(mbr == MessageBoxResult.Cancel)
+            {
+                e.Cancel = true;
+            }
+        }
     }
 }

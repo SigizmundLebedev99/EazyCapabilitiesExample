@@ -1,15 +1,22 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 using EazyCapabilitiesExample.Models.Jobs;
 
 namespace EazyCapabilitiesExample.Models
 {
-    class Employee
+    class Employee : INotifyPropertyChanged
     {
         private string phone;
+        private string imagepath;
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private void OnPropertyChanged([CallerMemberName]string prop = "")
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
+        }
+
         public string Firstname { get; set; }
         public string Lastname { get; set; }
         public string Patronymic { get; set; }
@@ -22,7 +29,7 @@ namespace EazyCapabilitiesExample.Models
             }
         }
         public DateTime Birthday { get; set; }
-        public string ImagePath { get; set; }
+        public string ImagePath { get { return imagepath; } set { imagepath = value; OnPropertyChanged(); } }
         public int WorkAge { get; set; }//Стаж
         public PersonsStage Position { get; set; }//Должность
 

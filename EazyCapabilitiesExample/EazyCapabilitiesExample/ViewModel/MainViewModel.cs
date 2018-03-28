@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Collections.ObjectModel;
-using EazyCapabilitiesExample.Models.Jobs;
 using EazyCapabilitiesExample.Models;
 using EazyCapabilitiesExample.Models.AppData;
 using System.Windows.Input;
 using System.ComponentModel;
 using System.Windows.Data;
+using Microsoft.Win32;
 
 namespace EazyCapabilitiesExample.ViewModel
 {
@@ -81,6 +76,28 @@ namespace EazyCapabilitiesExample.ViewModel
             {
                 searchText = value;
                 EmployeeView.Refresh();
+            }
+        }
+
+        public ICommand ChooseImage
+        {
+            get
+            {
+                return new DefaultCommand(
+                    (obj) =>
+                    {
+                        Employee emp = obj as Employee;
+                        OpenFileDialog opd = new OpenFileDialog
+                        {
+                            Filter = "Image files|*.jpg",
+                            Multiselect = false                        
+                        };
+                        if(opd.ShowDialog() == true)
+                        {
+                            emp.ImagePath = opd.FileName;
+                        }
+                    }
+                    );
             }
         }
     }

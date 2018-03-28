@@ -139,7 +139,7 @@
             </DatePicker>
         </Expander>
         <Button Canvas.Right="90" Canvas.Top="30" Style="{StaticResource ExcapeBtnStyle}" Click="Button_Click"/>
-        <Button Command="{Binding ChooseImage}" Content="{StaticResource SearchIcon}" Height="30" Canvas.Left="310" Canvas.Top="133" Background="Gray" RenderTransformOrigin="0.533,2.033"/>
+        <Button Command="{Binding ChooseImage}" Content="{StaticResource SearchIcon}" Height="30" Canvas.Left="310" Canvas.Top="133" Background="Gray"/>
         <TextBlock Text="Фото" Background="LightGray" Padding="4" Canvas.Left="232" Canvas.Top="16"/>
         <Button Style="{StaticResource BaseButton}" CommandParameter="{Binding ElementName=currentWindow}" Content="Готово" Canvas.Left="220" Canvas.Top="235" Background="Gray" Command="{Binding Add}">
         </Button>

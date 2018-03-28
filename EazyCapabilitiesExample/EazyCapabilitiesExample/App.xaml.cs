@@ -1,4 +1,6 @@
-﻿using System;
+﻿using EazyCapabilitiesExample.ViewModel;
+using EazyCapabilitiesExample.Models.AppData;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -13,5 +15,6 @@ namespace EazyCapabilitiesExample
     /// </summary>
     public partial class App : Application
     {
+       
     }
 }
