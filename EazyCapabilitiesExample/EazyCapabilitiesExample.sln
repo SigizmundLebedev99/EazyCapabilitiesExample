@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2010
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EazyCapabilitiesExample", "EazyCapabilitiesExample\EazyCapabilitiesExample.csproj", "{66847822-0A1E-42E7-BE93-B77767CDD077}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{66847822-0A1E-42E7-BE93-B77767CDD077}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66847822-0A1E-42E7-BE93-B77767CDD077}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66847822-0A1E-42E7-BE93-B77767CDD077}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66847822-0A1E-42E7-BE93-B77767CDD077}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5E86B5C2-A8A5-4590-A759-5366016B99E2}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Company>
+  <Employee>
+    <Id>1</Id>
+    <Firstname>Петр</Firstname>
+    <Lastname>Петров</Lastname>
+    <Patronymic>Петрович</Patronymic>
+    <Phone>88712362011</Phone>
+    <Birthday>12.03.1997</Birthday>
+    <ImagePath>Images/miner.jpg</ImagePath>
+    <WorkAge>3</WorkAge>
+    <Position>Клерк</Position>
+  </Employee>
+  
+  <Employee>
+    <Id>2</Id>
+    <Firstname>Вова</Firstname>
+    <Lastname>Сидоров</Lastname>
+    <Patronymic>Алексеевич</Patronymic>
+    <Phone>89711082011</Phone>
+    <Birthday>10.12.1998</Birthday>
+    <ImagePath>Images/clerk.jpg</ImagePath>
+    <WorkAge>1</WorkAge>
+    <Position>Клерк</Position>
+  </Employee>
+  
+  <Employee>
+    <Id>3</Id>
+    <Firstname>Саша</Firstname>
+    <Lastname>Алексеев</Lastname>
+    <Patronymic>Александрович</Patronymic>
+    <Phone>89192363371</Phone>
+    <Birthday>30.05.1984</Birthday>
+    <ImagePath>Images/boss.jpg</ImagePath>
+    <WorkAge>9</WorkAge>
+    <Position>Начальник отдела</Position>
+  </Employee>
+  
+  <Employee>
+    <Id>4</Id>
+    <Firstname>Василий</Firstname>
+    <Lastname>Власов</Lastname>
+    <Patronymic>Иосифович</Patronymic>
+    <Phone>84887657891</Phone>
+    <Birthday>22.09.1979</Birthday>
+    <ImagePath>Images/cleaner.jpg</ImagePath>
+    <WorkAge>11</WorkAge>
+    <Position>Уборщик</Position>
+  </Employee>
+  
+  <Employee>
+    <Id>5</Id>
+    <Firstname>Ксения</Firstname>
+    <Lastname>Ватрушева</Lastname>
+    <Patronymic>Петровна</Patronymic>
+    <Phone>86492664021</Phone>
+    <Birthday>19.01.1985</Birthday>
+    <ImagePath>Images/meneger.jpg</ImagePath>
+    <WorkAge>5</WorkAge>
+    <Position>Менеджер</Position>
+  </Employee>
+</Company> 

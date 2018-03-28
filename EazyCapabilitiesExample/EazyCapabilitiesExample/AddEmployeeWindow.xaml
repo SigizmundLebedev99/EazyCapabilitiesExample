@@ -1,0 +1,147 @@
+﻿<Window x:Class="EazyCapabilitiesExample.AddEmployeeWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EazyCapabilitiesExample"
+        xmlns:vm="clr-namespace:EazyCapabilitiesExample.ViewModel"
+        mc:Ignorable="d"
+        Title="AddEmployeeWindow" Height="300" Width="423"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="Transparent"
+        MouseLeftButtonDown="Window_MouseLeftButtonDown"
+        x:Name="currentWindow"
+        WindowStartupLocation="CenterScreen"
+        >
+    <Window.DataContext>
+        <vm:AddEmployeeVM/>
+    </Window.DataContext>
+    <Window.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="FontStyle" Value="Oblique"/>
+        </Style>
+        <Style x:Key="ExcapeBtnStyle" TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Canvas>
+                            <Canvas.Triggers>
+                                <EventTrigger RoutedEvent="Canvas.MouseEnter">
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation To="0.6" Duration="0:0:0.05" Storyboard.TargetName="border" Storyboard.TargetProperty="Opacity" AccelerationRatio="1" />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger>
+                                <EventTrigger RoutedEvent="Canvas.MouseLeave">
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation To="1" Duration="0:0:0.05" Storyboard.TargetName="border" Storyboard.TargetProperty="Opacity" AccelerationRatio="1" />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger>
+                                <EventTrigger RoutedEvent="Canvas.MouseLeftButtonDown">
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation To="1" Duration="0:0:0.05" Storyboard.TargetName="border" Storyboard.TargetProperty="Opacity" AccelerationRatio="1" />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger>
+                            </Canvas.Triggers>
+
+                            <Rectangle Name="border" Width="30" Height="30" Stroke="Black" StrokeThickness="4" RadiusX="3" RadiusY="3" Fill="Red" />
+                            <Line X1="5" Y1="5" X2="25" Y2="25" Stroke="White" StrokeThickness="5" StrokeEndLineCap="Round" StrokeStartLineCap="Round" />
+                            <Line X1="25" Y1="5" X2="5" Y2="25" Stroke="White" StrokeThickness="5" StrokeEndLineCap="Round" StrokeStartLineCap="Round" />
+
+                        </Canvas>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <vm:DateTimeConverter x:Key="myDateTime"/>
+    </Window.Resources>
+    <Canvas Margin="0,0,10,0">
+        <Canvas.Resources>
+            <ResourceDictionary>
+                <ResourceDictionary.MergedDictionaries>
+                    <ResourceDictionary Source="Resources/Over.xaml"/>
+                    <ResourceDictionary Source="Resources/Styles.xaml"/>
+                </ResourceDictionary.MergedDictionaries>
+            </ResourceDictionary>
+        </Canvas.Resources>
+        <Path Canvas.Top="0" Canvas.Left="0" Height="291" Stretch="Fill" Width="386" Stroke="#FF314E72" StrokeThickness="3">
+            <Path.Fill>
+                <VisualBrush Viewport="0,0,100,30" ViewportUnits="Absolute" TileMode="Tile">
+                    <VisualBrush.Visual>
+                        <StackPanel Background="White">
+                            <TextBlock FontSize="12pt" Margin="10" Foreground="#FF8F8C8C" FontStyle="Italic" >Новый сотрудник!</TextBlock>
+                        </StackPanel>
+                    </VisualBrush.Visual>
+                    <VisualBrush.RelativeTransform>
+                        <RotateTransform Angle="45" CenterX="0.5" CenterY="0.5" />
+                    </VisualBrush.RelativeTransform>
+                </VisualBrush>
+            </Path.Fill>
+            <Path.Data>
+                <PathGeometry>
+                    <PathFigure StartPoint="30,0" IsClosed="True">
+                        <LineSegment Point="250,0"/>
+                        <ArcSegment Point="280,30" Size="30,30" SweepDirection="Clockwise"/>
+                        <LineSegment Point="280,190"/>
+                        <ArcSegment Point="250,210" Size="30,30" SweepDirection="Clockwise"/>
+                        <LineSegment Point="30,210"/>
+                        <ArcSegment Point="0,190" Size="30,30" SweepDirection="Clockwise"/>
+                        <LineSegment Point="0,30"/>
+                        <ArcSegment Point="30,0" Size="30,30" SweepDirection="Clockwise"/>
+                    </PathFigure>
+                </PathGeometry>
+            </Path.Data>
+        </Path>
+        <Grid Canvas.Top="40" Canvas.Left="40" Canvas.Right="40" Canvas.Bottom="40" Width="270">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="30"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Border BorderBrush="Gray" BorderThickness="2" Background="#7FC0C9C9" CornerRadius="10" Grid.RowSpan="2">
+                <StackPanel Margin="10" Width="90" Height="190">
+                    <TextBlock Text="Фамилия"/>
+                    <TextBox Text="{Binding firstname}"/>
+                    <TextBlock Text="Имя"/>
+                    <TextBox Text="{Binding lastname}"/>
+                    <TextBlock Text="Отчество"/>
+                    <TextBox Text="{Binding patronymic}"/>
+                    <TextBlock Text="Телефон"/>
+                    <TextBox Text="{Binding phone}"/>
+                    <TextBlock Text="Стаж"/>
+                    <TextBox Text="{Binding workage}"/>
+                </StackPanel>
+            </Border>
+
+            <Border Grid.Column="2" Grid.Row="0" BorderThickness="3" BorderBrush="Gray" Margin="10" Background="LightGray">
+                <Image MinHeight="70" Source="{Binding imagepath}" Height="80"/>
+            </Border>
+
+            <StackPanel Grid.Column="2" Grid.Row="1">
+                <TextBlock Text="Профессия" Background="LightGray" Padding="4"/>
+                <ComboBox Height="30" ItemsSource="{Binding Variants}" x:Name="comeBox" SelectedItem="{Binding position}" Margin="-18,10,-17,0"/>
+            </StackPanel>
+        </Grid>
+        <Expander Header="День рождения" FontSize="10" Canvas.Left="45" Canvas.Top="225">
+            <DatePicker SelectedDate="{Binding birthday}" Margin="3">
+
+            </DatePicker>
+        </Expander>
+        <Button Canvas.Right="90" Canvas.Top="30" Style="{StaticResource ExcapeBtnStyle}" Click="Button_Click"/>
+        <Button Command="{Binding ChooseImage}" Content="{StaticResource SearchIcon}" Height="30" Canvas.Left="310" Canvas.Top="133" Background="Gray" RenderTransformOrigin="0.533,2.033"/>
+        <TextBlock Text="Фото" Background="LightGray" Padding="4" Canvas.Left="232" Canvas.Top="16"/>
+        <Button Style="{StaticResource BaseButton}" CommandParameter="{Binding ElementName=currentWindow}" Content="Готово" Canvas.Left="220" Canvas.Top="235" Background="Gray" Command="{Binding Add}">
+        </Button>
+    </Canvas>
+</Window>
